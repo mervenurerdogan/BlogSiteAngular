@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-9">
+
+    <form *ngIf="info==null" (ngSubmit)="onSubmit()" [formGroup]="categoryForm" class="example-form">
+      <div class="fomr-container">
+        <mat-form-field class="example-full-width">
+          <input formControlName="name" placeholder="Kategori Giriniz" matInput>
+        </mat-form-field>
+      </div>
+
+<button [disabled]="loading" mat-raised-button color="accent" class="mt-3">
+  Kategori Güncelle
+</button>
+    </form>
+    <div *ngIf="info != null" class="alert mt-3" [ngClass]="{ 'alert-primary': success, 'alert-danger': !success }" >
+      {{ info }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="card border-info mb-3" style="max-width: 18rem;">
+  <div class="card-header"style="background-color: rgb(204, 182, 230);"><strong>Kategoriler</strong></div>
+  <div class="card-body text-info">
+
+
+    <div *ngIf="categories.length == 0" class="d-flex justify-content-center"><!--boş olduğund aliste loading döncek-->
+      <div class="spinner-border " style="text-decoration-color: blueviolet;" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+
+
+
+  <h3 *ngFor="let item of categories">
+  <strong>
+    <a [routerLink]="['/kategori', item.name |urlFormat , item.id]" class="btn btn-link"><i class="far fa-arrow-alt-circle-right mr-3"></i><strong>{{item.name}}</strong></a>
+
+  </strong>
+
+</h3>
+  </div>
+</div>

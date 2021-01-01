@@ -1,0 +1,69 @@
+<div >
+  <table style="width: 100%" mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="picture">
+      <th mat-header-cell *matHeaderCellDef ><strong style="color: black;font-size: 15px;">Resim</strong> </th>
+      <td mat-cell *matCellDef="let article">
+        <img
+        [src]="article.picture || '../../../assets/articleDefault.jpg'"
+          class="img-thumbnail"
+          style="width: 120px; height: 70px;"
+
+        />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title" >
+      <th mat-header-cell *matHeaderCellDef>Başlık</th>
+      <td mat-cell *matCellDef="let article">
+        {{article.title}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Kategori</th>
+      <td mat-cell *matCellDef="let article">
+        {{article.category.name}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="commentCount">
+      <th mat-header-cell *matHeaderCellDef>Yorum Sayısı</th>
+      <td mat-cell *matCellDef="let article">
+        {{article.commentCount}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="viewCount">
+      <th mat-header-cell *matHeaderCellDef>Görüntülenme</th>
+      <td mat-cell *matCellDef="let article">
+        {{article.viewCount}}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="publishDate">
+      <th mat-header-cell *matHeaderCellDef>Tarih</th>
+      <td mat-cell *matCellDef="let article">
+        {{ article.publishDate | date: "dd.MM.yyyy" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef ><div class="ml-5">İşlemler</div> </th>
+      <td mat-cell *matCellDef="let article" >
+             <div class="example-button-row">
+              <button [routerLink]="['/admin/makale/guncelle',article.id]" class="ml-5" routerLinkActive="router-link-active"  mat-raised-button color="primary">Güncelle</button>
+              <button (click)="deleteArticle(article.id)" routerLinkActive="router-link-active" class="ml-1" mat-raised-button color="warn">Sil</button>
+
+             </div>
+
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10,15, 20]" showFirstLastButtons></mat-paginator>
+</div>

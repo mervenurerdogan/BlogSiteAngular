@@ -1,0 +1,66 @@
+<app-page-titles [title]="'İletişim'"></app-page-titles>
+
+
+<form *ngIf="info == null" (ngSubmit)="onsubmit()" [formGroup]="contactform">
+  <div class="form-container ">
+    <mat-form-field>
+      <input matInput placeholder="İsminiz" formControlName="name" />
+      <mat-error *ngIf="getControls.name.invalid">{{
+        GetValidationMessages(getControls.name, "isim")
+      }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Email Adresiniz" formControlName="email" />
+      <mat-error *ngIf="getControls.email.invalid">{{
+        GetValidationMessages(getControls.email, "email")
+      }}</mat-error>
+
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Konu" formControlName="subject" />
+            <mat-error *ngIf="getControls.subject.invalid">{{
+        GetValidationMessages(getControls.subject, "konu")
+      }}</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        rows="5"
+        matInput
+        placeholder="Mesajınız"
+        formControlName="message"
+      ></textarea>
+
+    </mat-form-field>
+
+    <button
+    [disabled]="loading"
+    mat-raised-button
+    color="primary"
+    type="submit"
+
+
+    >
+
+
+
+
+      Gönder
+
+      <i
+      *ngIf="loading"
+      class="spinner-border spinner-border-sm"
+      role="status"
+      aria-hidden="true"
+    ></i>
+    </button>
+  </div>
+</form>
+<div
+  *ngIf="info != null"
+  class="alert"
+  [ngClass]="{ 'alert-primary': success, 'alert-danger': !success }">
+  {{ info }}
+</div>

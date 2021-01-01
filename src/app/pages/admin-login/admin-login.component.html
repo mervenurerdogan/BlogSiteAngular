@@ -1,0 +1,27 @@
+
+<div class="example-container">
+  <div>
+    <label class="text-primary" style="font-size: medium;">Admin Sayfası Giriş</label>
+  </div>
+  <mat-form-field>
+    <input #emailInput matInput placeholder="Email" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input  #passwordInput matInput placeholder="Şifre" [type]="hide ? 'password' : 'text'" />
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+
+      <i class="fas fa-eye-slash"></i>
+      </button>
+  </mat-form-field>
+
+  <button
+    (click)="login(emailInput.value, passwordInput.value)"
+    mat-raised-button
+    color="primary"
+  >
+Giriş Yap  </button>
+</div>
+
+
+

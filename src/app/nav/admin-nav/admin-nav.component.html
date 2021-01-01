@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-dark  " style="background-color: magenta;text-size-adjust: initial;">
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" routerLink="/admin">
+        <i class="fas fa-user-cog"></i>
+        MissCoder Yönetim Paneli</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item ml-2">
+          <a class="nav-link" routerLink="/admin">
+            <strong style="color: black;"> Anasayfa</strong> <span class="sr-only">(current)</span></a
+          >
+        </li>
+
+        <li class="nav-item dropdown ml-2">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          <strong style="color: black;"> Makale</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/admin/makale/ekle"
+              >Makale Ekle</a
+            >
+            <a class="dropdown-item" routerLink="/admin/makale/liste"
+              >Makale Liste</a
+            >
+          </div>
+        </li>
+
+        <li class="nav-item dropdown ml-2">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+          <strong style="color: black;"> Kategori</strong>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/admin/kategori/ekle"
+              >Kategori Ekle</a
+            >
+            <a class="dropdown-item" routerLink="/admin/kategori/liste"
+              >Kategori Liste</a
+            >
+          </div>
+        </li>
+
+
+
+
+
+        <li class="nav-item ml-2">
+          <a class="nav-link" routerLink="/">
+             <strong style="color: black;"> MissCoder Anasayfaya Dönüş</strong>
+            <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
